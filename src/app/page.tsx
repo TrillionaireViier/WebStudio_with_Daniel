@@ -50,6 +50,8 @@ export default function Home() {
         return <Designs.Design19 key="d19" />;
       case 20:
         return <Designs.Design20 key="d20" />;
+      case 21:
+        return <Designs.Design21 key="d21" />;
       default:
         return <Designs.Design1 key="default" />;
     }

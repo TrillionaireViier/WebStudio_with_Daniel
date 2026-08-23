@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Monitor, Rocket, Star, Code, Layers, Zap, Hexagon, Box, Globe, Shield, Activity, Cpu, Camera, Smartphone, Cloud, Sun, Moon, Wind } from 'lucide-react';
+import { ArrowRight, Sparkles, Monitor, Rocket, Star, Code, Layers, Zap, Hexagon, Box, Globe, Shield, Activity, Cpu, Camera, Smartphone, Cloud, Sun, Moon, Wind, Settings, Search, Bell, ChevronDown, Check, BookOpen, Heart, MessageSquare, Target } from 'lucide-react';
 
 const BaseLayout = ({ children, className }: { children: React.ReactNode, className?: string }) => (
   <motion.div 
@@ -263,6 +263,130 @@ export const Design20 = () => (
         <h1 className="text-6xl font-black mb-6">3D Isometric</h1>
         <p className="text-xl mb-10 opacity-90">Adding depth and perspective to flat interfaces.</p>
         <button className="px-8 py-3 bg-white text-teal-600 font-bold rounded shadow-lg hover:translate-y-1 transition-transform">Enter Dimension</button>
+      </div>
+    </div>
+  </BaseLayout>
+);
+
+export const Design21 = () => (
+  <BaseLayout className="bg-[#f3f2f1] text-[#242424] font-sans p-0 w-full">
+    {/* Fluent 2 is characterized by neutral backgrounds, clean typography (Segoe UI/San-serif), 
+        distinct elevation shadows, rounded corners, and a signature blue accent color. */}
+    <div className="w-full h-screen flex flex-col bg-[#faf9f8] overflow-hidden">
+      
+      {/* Top Header */}
+      <header className="h-12 bg-white flex items-center justify-between px-4 border-b border-gray-200 shrink-0">
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 rounded bg-[#0f6cbd] flex items-center justify-center text-white font-bold">
+            <Box size={18} />
+          </div>
+          <span className="font-semibold text-sm">Fluent Dashboard</span>
+        </div>
+        
+        <div className="flex-1 max-w-lg mx-4 hidden md:block">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search size={16} className="text-gray-500" />
+            </div>
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              className="w-full py-1.5 pl-10 pr-3 bg-[#f3f2f1] border-b border-gray-400 hover:border-gray-500 focus:border-[#0f6cbd] focus:bg-white focus:outline-none focus:ring-0 text-sm transition-colors rounded-t"
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition-colors">
+            <Bell size={18} className="text-gray-600" />
+          </button>
+          <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition-colors">
+            <Settings size={18} className="text-gray-600" />
+          </button>
+          <div className="w-8 h-8 rounded-full bg-[#0f6cbd] text-white flex items-center justify-center text-xs font-semibold ml-2 cursor-pointer shadow-sm">
+            FL
+          </div>
+        </div>
+      </header>
+
+      {/* Main Layout */}
+      <div className="flex flex-1 overflow-hidden">
+        
+        {/* Sidebar */}
+        <aside className="w-64 bg-[#f3f2f1] border-r border-gray-200 flex flex-col p-2 hidden sm:flex shrink-0">
+          <nav className="flex-1 flex flex-col gap-1">
+            {['Home', 'Recent', 'Favorites', 'Shared with me'].map((item, i) => (
+              <button 
+                key={item}
+                className={`flex items-center gap-3 px-3 py-2 rounded text-sm w-full text-left transition-colors
+                  ${i === 0 ? 'bg-white font-semibold shadow-sm' : 'hover:bg-gray-200/50 text-gray-700'}`}
+              >
+                {i === 0 ? <Activity size={16} className="text-[#0f6cbd]" /> : <Cloud size={16} />}
+                {item}
+              </button>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Content Area */}
+        <main className="flex-1 overflow-auto p-6 lg:p-8 bg-[#faf9f8]">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex justify-between items-end mb-6">
+              <div>
+                <h1 className="text-2xl font-semibold mb-1 text-[#242424]">Welcome back</h1>
+                <p className="text-sm text-[#616161]">Here's what is happening with your projects today.</p>
+              </div>
+              <button className="bg-[#0f6cbd] hover:bg-[#115ea3] active:bg-[#0f548c] text-white px-4 py-1.5 rounded-md text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm">
+                <Sparkles size={16} />
+                New Project
+              </button>
+            </div>
+
+            {/* Fluent Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              {[
+                { title: 'Total Revenue', value: '$45,231.89', trend: '+20.1%' },
+                { title: 'Active Users', value: '2,350', trend: '+15.2%' },
+                { title: 'System Status', value: 'Healthy', trend: '99.9% Uptime' }
+              ].map((stat, i) => (
+                <div key={i} className="bg-white p-5 rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.08),0_0_2px_rgba(0,0,0,0.08)] border border-transparent hover:border-gray-200 transition-colors cursor-pointer">
+                  <h3 className="text-xs font-semibold text-[#616161] uppercase tracking-wider mb-2">{stat.title}</h3>
+                  <div className="text-2xl font-semibold text-[#242424] mb-1">{stat.value}</div>
+                  <div className="text-sm font-medium text-green-600">{stat.trend}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Data Table Area */}
+            <div className="bg-white rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.08),0_0_2px_rgba(0,0,0,0.08)] overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-100 flex justify-between items-center">
+                <h2 className="text-base font-semibold text-[#242424]">Recent Documents</h2>
+                <button className="text-[#0f6cbd] text-sm font-semibold hover:underline">View all</button>
+              </div>
+              <div className="divide-y divide-gray-100">
+                {[
+                  { name: 'Q3 Financial Report.xlsx', date: 'Oct 24, 2026', author: 'Daniel' },
+                  { name: 'Marketing Campaign 2027.docx', date: 'Oct 23, 2026', author: 'Sarah' },
+                  { name: 'Design System V2.fig', date: 'Oct 21, 2026', author: 'Mike' },
+                ].map((doc, i) => (
+                  <div key={i} className="px-5 py-3 flex items-center justify-between hover:bg-[#f3f2f1]/50 transition-colors cursor-pointer group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center text-gray-500">
+                        <Box size={16} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-[#242424] group-hover:text-[#0f6cbd] transition-colors">{doc.name}</p>
+                        <p className="text-xs text-[#616161]">Modified {doc.date}</p>
+                      </div>
+                    </div>
+                    <div className="text-sm text-[#616161] hidden sm:block">{doc.author}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </main>
       </div>
     </div>
   </BaseLayout>

@@ -10,8 +10,8 @@ export function DesignSwitcher() {
   const { activeDesign, setActiveDesign } = useDesign();
   const [isOpen, setIsOpen] = useState(false);
 
-  const totalDesigns = 25;
-  const availableDesigns = [1, 2, 3]; // For now, only 3 are implemented
+  const totalDesigns = 21;
+  const availableDesigns = Array.from({ length: 21 }, (_, i) => i + 1);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
